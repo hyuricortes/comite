@@ -1,22 +1,15 @@
 <?php
 
+use App\Http\Controllers\RecursosController;
+use App\Http\Controllers\ClubesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
+// clubles
+Route::get('/clubes', [ClubesController::class, 'index']);
+Route::post('/clubes', [ClubesController::class, 'insert']);
 
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-
+// recursos
+Route::get('/recursos', [RecursosController::class, 'index']);
+Route::post('/recursos', [RecursosController::class, 'insert']);
+Route::post('/recursos/consumir', [RecursosController::class, 'consumir']);
