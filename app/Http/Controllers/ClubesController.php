@@ -11,4 +11,9 @@ class ClubesController extends Controller
           $clubes = Clubes::all();
           return $clubes;
     }
+    public function insert(Request $r) {
+           $rawData = $r->only(['clube', 'saldo_disponivel']);
+           $clubes = Clubes::create($rawData);
+           return $clubes;
+    }
 }
